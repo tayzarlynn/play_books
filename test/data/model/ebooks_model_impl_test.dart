@@ -34,7 +34,8 @@ void main() {
     });
 
     test('Querying from google api', () {
-      expect(model.getBookSearchFromDataBase('flutter'), emits(getEBooksMock()));
+      expect(
+          model.getBookSearchFromDataBase('flutter'), emits(getEBooksMock()));
     });
 
     test('Getting movie detail', () {
@@ -47,8 +48,8 @@ void main() {
     });
 
     test('Getting All Library Ebooks from DB', () {
-      expect(
-          model.getLibraryEbooksFromDatabaseWithTitle(), emits(getEBooksMock()));
+      expect(model.getLibraryEbooksFromDatabaseWithTitle(),
+          emits(getEBooksMock()));
     });
 
     test('CRUD Shelf', () {
@@ -68,10 +69,6 @@ void main() {
       model.createShelf('test', getShelfMock().first);
       expect(
         model.getShelfEbooksFromDatabaseWithTitle('test'),
-        emits(getEBooksMock()),
-      );
-      expect(
-        model.getShelfEbooksFromDatabaseWithAuthor('test'),
         emits(getEBooksMock()),
       );
     });

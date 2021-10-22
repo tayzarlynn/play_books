@@ -9,7 +9,7 @@ import '../main.dart';
 
 class CreateNewShelfBloc extends ChangeNotifier {
   ///model
-  final EbooksModel _model = EbooksModelImpl();
+   EbooksModel _model = EbooksModelImpl();
   final TextEditingController controller = TextEditingController();
 
   ///uuid
@@ -19,7 +19,9 @@ class CreateNewShelfBloc extends ChangeNotifier {
   String? editID;
   ShelfVO? shelf;
 
-  CreateNewShelfBloc(editID) {
+  CreateNewShelfBloc(editID,[EbooksModel? ebooksModelMock]) {
+    ///for unit testing
+    if(ebooksModelMock!=null) _model = ebooksModelMock;
     ///create new shelf
     uniqueID = uuid.v1();
 

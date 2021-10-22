@@ -9,17 +9,17 @@ class ShelfDAOImplMock extends ShelfDAO {
 
   @override
   Future createShelf(String uniqueID, ShelfVO shelf) {
-   return Future.value(shelfMockFromDB[uniqueID] = shelf);
+    return Future.value(shelfMockFromDB[uniqueID] = shelf);
   }
 
   @override
   ShelfVO? getShelf(String uniqueID) {
-   return shelfMockFromDB[uniqueID];
+    return shelfMockFromDB[uniqueID];
   }
 
   @override
   void deleteShelf(String uniqueID) {
-     shelfMockFromDB.remove(uniqueID);
+    shelfMockFromDB.remove(uniqueID);
   }
 
   @override
@@ -36,6 +36,7 @@ class ShelfDAOImplMock extends ShelfDAO {
   List<BookVO> getShelfEbooksFromDatabaseWithTitle(String uniqueID) {
     return getShelf(uniqueID)?.bookList?.toList() ?? [];
   }
+
   @override
   List<BookVO> getShelfEbooksFromDatabaseWithAuthor(String uniqueID) {
     return getShelf(uniqueID)?.bookList?.toList() ?? [];
@@ -52,8 +53,6 @@ class ShelfDAOImplMock extends ShelfDAO {
     return Stream.value(getShelf(uniqueID)?.bookList?.toList() ?? []);
   }
 
-
-
   @override
   Stream<List<BookVO>> getShelfEbooksFromDatabaseWithTitleStream(
       String uniqueID) {
@@ -64,11 +63,4 @@ class ShelfDAOImplMock extends ShelfDAO {
   Stream<List<ShelfVO>> getAllShelfStream() {
     return Stream.value(getAllShelf());
   }
-
-
-
-
-
-
-
 }
